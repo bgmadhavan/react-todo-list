@@ -12,7 +12,6 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
     const [editText, setEditText] = useState('');
     const [editId, setEditId] = useState(null);
 
-
     const handleDeleteClick = (id)=>{
         onDelete(id);
         // e.preventDefault();
@@ -69,7 +68,7 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
                 todos.length ? (todos.map(todo=>
                     <StyledListItem 
                         key={todo.id}
-                        onClick={()=>handleComplete(todo)}
+                        onClick={() => handleComplete(todo)}
                         secondaryAction={
                         <>
                             <IconButton edge="end" aria-label="edit" onClick={() => handleEditClick(todo.id,todo.task)}>
@@ -85,8 +84,9 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
                         editId === todo.id ? (
                             <TextField
                                 value={editText}
-                                onChange={e=>handleChange(e)}
-                                onBlur={()=>handleSave(todo)}
+                                onChange={e => handleChange(e)}
+                                onBlur={() => handleSave(todo)}
+                                inputRef={inputRef}
                                 autoFocus
                                 sx={style}
                             />
