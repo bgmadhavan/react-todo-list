@@ -68,7 +68,6 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
                 todos.length ? (todos.map(todo=>
                     <StyledListItem 
                         key={todo.id}
-                        onClick={() => handleComplete(todo)}
                         secondaryAction={
                         <>
                             <IconButton edge="end" aria-label="edit" onClick={() => handleEditClick(todo.id,todo.task)}>
@@ -95,6 +94,7 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
                                     textDecoration: todo.completed ? "line-through" : "none",
                                     color: todo.completed ? "grey" : "inherit"
                                 }}
+                                onClick={() => handleComplete(todo)}
                       
                             />
                     }
