@@ -86,7 +86,6 @@ function ListArea({todos, onDelete, onEdit, markCompleted}){
                                 value={editText}
                                 onChange={e => handleChange(e)}
                                 onBlur={() => handleSave(todo)}
-                                inputRef={inputRef}
                                 autoFocus
                                 sx={style}
                             />
