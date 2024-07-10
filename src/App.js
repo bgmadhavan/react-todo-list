@@ -18,11 +18,13 @@ function App() {
         if(recent){
             setTodos(recent);
         }
-    },[]);
+    },[])
 
     useEffect(()=>{
-      localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(Todos));
-    },[Todos]);
+      if (Todos.length) { 
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(Todos));
+      }
+    },[Todos])
 
   const filteredTodos = Todos.filter(todo => todo.task.toLowerCase().includes(inputTerm.toLowerCase()));
 
